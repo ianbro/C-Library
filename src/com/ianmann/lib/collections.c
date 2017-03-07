@@ -13,10 +13,24 @@ void list_addi(ilist *list, int toadd) {
   }
 
   list->data[list->size-1] = toadd;
+  free(tmpdata);
 }
 
 /* Adds each element in toadd to list in the order given in toadd. */
-void list_addi_mult(ilist *list, int toadd[]);
+void list_addi_mult(ilist *list, ilist toadd) {
+  int *tmpdata = list->data;
+
+  list->data = malloc((list->size + toadd.size) * sizeof(int));
+  list->size += toadd.size;
+
+  for (int i = 0; i < list->size-toadd.size; i++) {
+    list->data[i] = tmpdata[i];
+  }
+
+  for (int i = 0; i < toadd.size; i++) {
+    list->data[i+(list->size - toadd.size)] = toadd.data[i];
+  }
+}
 
 /* Returns the int at index in list. */
 int list_geti_index(ilist *list, int index);

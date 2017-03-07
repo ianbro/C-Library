@@ -9,7 +9,7 @@ typedef struct ilist ilist;
 void list_addi(ilist *list, int toadd);
 
 /* Adds each element in toadd to list in the order given in toadd. */
-void list_addi_mult(ilist *list, int toadd[]);
+void list_addi_mult(ilist *list, ilist toadd);
 
 /* Returns the int at index in list. */
 int list_geti_index(ilist *list, int index);
