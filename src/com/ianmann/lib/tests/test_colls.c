@@ -25,5 +25,9 @@ int main(int argc, char *argv[])
 
   printf("%d, %d\n", a->data[2], a->size);
 
+  int newlist[] = {1,4};
+  ilist *c = buildilist(newlist, 2);
+  printf("%d %d %d\n", c->data[0], c->data[1], c->size);
+
   exit(0);
 }

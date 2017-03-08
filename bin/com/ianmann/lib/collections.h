@@ -20,6 +20,15 @@ int list_geti_index(ilist *list, int index);
 int searchilist(ilist *list, int query);
 
 /* Creates a list of integers and returns that list. The elements in toadd will
- * be added to the list upon creation.
+ * be added to the list upon creation. The parameter size will be the number of
+ * elements that should be added from toadd.
+ *
+ * NOTE: This function assumes that size is accurate. If it is larger than the
+ * actual size of toadd, then an index error will be thrown. If it is smaller,
+ * no error will be thrown but only size number of elements from toadd will be
+ * set to the ilists data.
  */
-ilist buildilist(int toadd[]);
+ilist *buildilist(int toadd[], int size);
+
+/* Creates an empty list of integers and returns that list. */
+ilist *buildilist_empty();
