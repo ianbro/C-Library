@@ -30,7 +30,7 @@ ilist *buildilist(int toadd[], int size);
 /* Creates an empty list of integers and returns that list. */
 ilist *buildilist_empty();
 
-/* Sets ret to a string representation of list. The string is formatted as so:
+/* Returns a string representation of list. The string is formatted as so:
  *      [#, #, #, #]
  */
 char *ilisttos(ilist list);

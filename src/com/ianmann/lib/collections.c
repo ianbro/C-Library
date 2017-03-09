@@ -36,7 +36,14 @@ void list_addi_mult(ilist *list, ilist toadd) {
 /* Find query in list and returns the index. If query does not exist,
  * -1 is returned.
  */
-int searchilist(ilist *list, int query);
+int searchilist(ilist *list, int query) {
+  for (int i = 0; i < list->size; i ++) {
+    if (list->data[i] == query) {
+      return i;
+    }
+  }
+  return -1;
+}
 
 /* Creates a list of integers and returns that list. The elements in toadd will
  * be added to the list upon creation. The parameter size will be the number of

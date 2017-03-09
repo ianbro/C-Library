@@ -25,10 +25,12 @@ int main(int argc, char *argv[])
 
   printf("%d, %d\n", a->data[2], a->size);
 
-  int newlist[] = {1,4};
-  ilist *c = buildilist(newlist, 2);
+  int newlist[] = {1, 4, 6, 2, 3};
+  ilist *c = buildilist(newlist, 5);
   char *cstr = ilisttos(*c);
   printf("%s\n", cstr);
+
+  printf("%d\n", searchilist(c, 6));
 
   exit(0);
 }
