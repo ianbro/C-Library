@@ -11,9 +11,6 @@ void list_addi(ilist *list, int toadd);
 /* Adds each element in toadd to list in the order given in toadd. */
 void list_addi_mult(ilist *list, ilist toadd);
 
-/* Returns the int at index in list. */
-int list_geti_index(ilist *list, int index);
-
 /* Find query in list and returns the index. If query does not exist,
  * -1 is returned.
  */
@@ -32,3 +29,8 @@ ilist *buildilist(int toadd[], int size);
 
 /* Creates an empty list of integers and returns that list. */
 ilist *buildilist_empty();
+
+/* Sets ret to a string representation of list. The string is formatted as so:
+ *      [#, #, #, #]
+ */
+char *ilisttos(ilist list);

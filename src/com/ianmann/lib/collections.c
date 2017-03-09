@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "collections.h"
@@ -32,9 +33,6 @@ void list_addi_mult(ilist *list, ilist toadd) {
   }
 }
 
-/* Returns the int at index in list. */
-int list_geti_index(ilist *list, int index);
-
 /* Find query in list and returns the index. If query does not exist,
  * -1 is returned.
  */
@@ -67,4 +65,32 @@ ilist *buildilist_empty() {
   list->size = 0;
 
   return list;
+}
+
+/* Returns a string representation of list. The string is formatted as so:
+ *      [#, #, #, #]
+ */
+char *ilisttos(ilist list) {
+  int sprintf(char *dest, const char *src, ...);
+  char *strcat(char *str, char *tocat);
+
+  char *ret = malloc(sizeof(char));
+  ret[0] = '[';
+  for (int i = 0; i < list.size-1; i ++) {
+    /* Add each element except the last one with a comma.
+     * The last element will not have the comma. */
+    char newstr[10];
+    sprintf(newstr, "%d, ", list.data[i]);
+    strcat(ret, newstr);
+  }
+  if (list.size > 0 /*TODO: make isempty*/) {
+    /* Add the last element without the comma. */
+    char newstr[10];
+    sprintf(newstr, "%d", list.data[list.size-1]);
+    strcat(ret, newstr);
+  }
+
+  /* Add the closing square bracket to the string. */
+  strcat(ret, "]");
+  return ret;
 }
